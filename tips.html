@@ -1,1 +1,131 @@
-tips page
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+    <link rel="stylesheet" type="text/css" href="myStyles.css">
+
+  
+
+  <script id="insert"></script>
+
+
+</head>
+<body>
+    <h1 id="myHeading" class="text-center">
+  Helpful Tips
+</h1>
+<br>
+<div>
+  <img id="myImage" src="https://github.com/isaac-2pi/RET-learnCoding/blob/master/default.png?raw=true" alt="Coding is fun">
+</div>
+<div class="style-as-button" id="myButton">
+  <a href="index.html">Home</a>
+</div>
+
+<ol>
+  <li>USE GOOGLE</li>
+  <li>If your changes do not update it could be because the browser is chaching the page. turn off the cache</li>
+  <li></li>
+</ol>
+
+<div id="canvasContainer">
+
+
+  <canvas id="myCanvas" width="500" height="500"></canvas>
+</div>
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+
+// get the canvas element
+var c = document.getElementById("myCanvas");
+// need to set the context to 2d and store it for later
+var ctx = c.getContext("2d");
+
+// change this to adjust the number of circles
+var numberOfBalls = 100;
+// circles will have random size up to this radius
+var maxSize = 50;
+// list of possible colours for circles
+var colourList = ["red", "blue", "green", "yellow", "pink"];
+// list to hold generated circles. 
+var balls = [];
+
+// ball class. each ball shares this class but has different values for the parameters
+class ball {
+  // this function creates copies of the class and sets the parameters
+  constructor(size, colour, speed, position_x, position_y) {
+    console.log("hello");
+    this.size = size;
+    this.colour = colour;
+    this.speed = speed;
+    this.position_x = position_x;
+    this.position_y = position_y;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.position_x, this.position_y, this.size, 0, 2 * Math.PI, false);
+    ctx.fillStyle = this.colour;
+    ctx.fill();
+  }
+
+}
+
+for (var i = 0; i < numberOfBalls; i++) {
+  var size = Math.floor((Math.random() * maxSize) + 1);
+  var newColour = colourList[Math.floor((Math.random() * colourList.length))];
+  var x = Math.random() * c.width;
+  var y = Math.random() * c.height;
+  balls[i] = new ball(size, newColour, 0, x, y)
+}
+
+console.log(balls);
+
+for (var i = 0; i < balls.length; i++) {
+  balls[i].draw();
+}
+
+
+
+
+
+
+
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: ""
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body>
+</html>
