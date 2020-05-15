@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,21 +17,160 @@
   ></script>
 
     <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-    <link rel="stylesheet" type="text/css" href="myStyles.css">
 
-   
+
+  <style id="compiled-css" type="text/css">
+      #myCanvas {
+  /* float: middle; */
+  margin: auto;
+  border: solid 1px black;
+}
+
+#canvasContainer {
+  width: 500px;
+  margin: auto;
+}
+
+#myHeading {
+    background-color: #D773A2;
+     color: white;
+    font-family: Arial, Helvetica, sans-serif;
+     
+}
+
+#page-container {
+    background-color: #E1E2E7;
+
+}
+
+#myImage {
+    padding: 0% 35%;
+    width: 30%;
+    height:30%;
+}
+
+#test {
+    /*width: 50%; */
+    /* float: right; */
+}
+
+#column-container {
+    height: 200px;
+}
+
+.text-bourder {
+    border: solid 4px #98042D;
+    background-color: #FCC0C5;
+}
+
+.columnsClass {
+    float: left;
+    width: 24%;
+}
+
+.text-center {
+    text-align: center;
+    font-weight: bold;
+}
+
+.style-as-button {
+    background-color: orange;
+    width: 100px;
+    /*height: 100px; */
+    padding: 16px;
+    border: solid 1px black;
+    float: none;
+    text-align: center;
+    border-radius: 25px;
+    color: white;
+}
+
+
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+  </style>
 
   <script id="insert"></script>
 
 
+    <script>
+      const customConsole = (w) => {
+        const pushToConsole = (payload, type) => {
+          w.parent.postMessage({
+            console: {
+              payload: payload,
+              type:    type
+            }
+          }, "*")
+        }
+
+        w.onerror = (message, url, line, column) => {
+          // the line needs to correspond with the editor panel
+          // unfortunately this number needs to be altered every time this view is changed
+          line = line - 79
+          if (line < 0){
+            pushToConsole(message, "error")
+          } else {
+            pushToConsole(`[${line}:${column}] ${message}`, "error")
+          }
+        }
+
+        w.console = (function(){
+          return {
+            log: (payload) => {
+              pushToConsole(payload, "log")
+            },
+            info: (payload) => {
+              pushToConsole(payload, "info")
+            },
+            warn: (payload) => {
+              pushToConsole(payload, "warn")
+            },
+            error: (payload) => {
+              pushToConsole(payload, "error")
+            },
+            system: (payload) => {
+              pushToConsole(payload, "system")
+            }
+          }
+        }())
+
+        console.system("Running fiddle")
+      }
+
+      if (window.parent){
+        customConsole(window)
+      }
+    </script>
 </head>
 <body>
     <h1 id="myHeading" class="text-center">
   Helpful Tips
 </h1>
 <br>
+<div>
+  <img id="myImage" src="https://github.com/wfykitty/Code-learning-website/blob/master/12.png?raw=true" alt="Coding is fun">
+</div>
 <div class="style-as-button" id="myButton">
-  <a href="index.html">Home</a>
+  <a href="#">Home</a>
 </div>
 
 <ol>
@@ -45,29 +185,27 @@
   <canvas id="myCanvas" width="500" height="500"></canvas>
 </div>
 
+<br>
+
+<br>
+
+  
 
   <!-- TODO: Missing CoffeeScript 2 -->
 
   <script type="text/javascript">//<![CDATA[
 
 
-// get the canvas element
 var c = document.getElementById("myCanvas");
-// need to set the context to 2d and store it for later
 var ctx = c.getContext("2d");
 
-// change this to adjust the number of circles
 var numberOfBalls = 100;
-// circles will have random size up to this radius
 var maxSize = 50;
-// list of possible colours for circles
-var colourList = ["red", "blue", "green", "yellow", "pink"];
-// list to hold generated circles. 
+var colourList = ["mediumvioletred", "dodgerblue", "aquamarine", "yellow", "	thistle"];
+
 var balls = [];
 
-// ball class. each ball shares this class but has different values for the parameters
 class ball {
-  // this function creates copies of the class and sets the parameters
   constructor(size, colour, speed, position_x, position_y) {
     console.log("hello");
     this.size = size;
@@ -115,7 +253,7 @@ for (var i = 0; i < balls.length; i++) {
     if (window.parent && window.parent.parent){
       window.parent.parent.postMessage(["resultsFrame", {
         height: document.body.getBoundingClientRect().height,
-        slug: ""
+        slug: "euqadosg"
       }], "*")
     }
 
@@ -123,6 +261,22 @@ for (var i = 0; i < balls.length; i++) {
     window.name = "result"
   </script>
 
+    <script>
+      let allLines = []
+
+      window.addEventListener("message", (message) => {
+        if (message.data.console){
+          let insert = document.querySelector("#insert")
+          allLines.push(message.data.console.payload)
+          insert.innerHTML = allLines.join(";\r")
+
+          let result = eval.call(null, message.data.console.payload)
+          if (result !== undefined){
+            console.log(result)
+          }
+        }
+      })
+    </script>
 
 </body>
 </html>
