@@ -317,83 +317,8 @@ c2.addEventListener('mousemove', function(evt) {
 
 clearCanvasButton2.addEventListener('click', clearCanvas);
 
-
-
-
-
   </script>
-  
-	<h3>Etch-a-sketch</h3>
-<div class="canvasContainer">	
-  <canvas class="myCanvas" id="myCanvas3" width="500" height="500"></canvas>
-	</div>
-	<script>
-		var c3 = document.getElementById("myCanvas3");
-var ctx3 = c3.getContext("2d");
-
-var pos_x3 = 250;
-var pos_y3 = 250;
-var size3 = 5;
-var colour3 = "red";
-
-function draw3() {
-	ctx3.fillstyle = colour3;
-    ctx3.fillRect(pos_x3, pos_y3, size3, size3);
-}
-
-draw3();
-
-function check(e) {
-    //alert(e.keyCode);
-    if (e.keyCode == 37) {
-    	//alert("you pressed left");
-        // add code to process movement
-        pos_x3 = pos_x3 - size3;
-        draw3();
-    }
-    if (e.keyCode == 38) {
-	    
-    	//alert("you pressed up");
-        // add code to process movement
-        pos_y3 = pos_y3 - size3;
-        draw3();
-	    e.preventDefault();;
-	    return false;
-    }
-    if (e.keyCode == 39) {
-    	//alert("you pressed right");
-        // add code to process movement
-        pos_x3 = pos_x3 + size3;
-        draw3();
-    }
-    if (e.keyCode == 40) {
-	    
-    	//alert("you pressed down");
-        // add code to process movement
-        pos_y3 = pos_y3 + size3;
-        draw3();
-	    e.preventDefault();
-	    return false;
-    }
-}
-
-window.addEventListener('keydown',check, false);
-
-
-	</script>
-  
-  <script>
-    // tell the embed parent frame the height of the content
-    if (window.parent && window.parent.parent){
-      window.parent.parent.postMessage(["resultsFrame", {
-        height: document.body.getBoundingClientRect().height,
-        slug: ""
-      }], "*")
-    }
-
-    // always overwrite window.name, in case users try to set it manually
-    window.name = "result"
-  </script>
+   
 
 
 </body>
