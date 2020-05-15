@@ -19,6 +19,24 @@
     <link rel="stylesheet" type="text/css" href="myStyles.css">
 
   
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
   <script id="insert"></script>
 
@@ -30,7 +48,7 @@
 </h1>
 <br>
 <div>
-  <img id="myImage" src="https://github.com/isaac-2pi/RET-learnCoding/blob/master/default.png?raw=true" alt="Coding is fun">
+  <img id="myImage" src="https://neoncareer.com/wp-content/uploads/2019/05/c-course-in-jayanagar.png" alt="Coding is fun">
 </div>
 <div class="style-as-button" id="myButton">
   <a href="index.html">Home</a>
