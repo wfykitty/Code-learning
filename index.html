@@ -31,7 +31,7 @@
 }
 
 #myImage {
-  width: 10%;
+  width: 20%;
   height: 100px;
 
   text-align: center;
@@ -41,17 +41,39 @@
 
 
 #myImage2 {
-  width: 10%;
+  width: 20%;
   height: 100px;
   text-align: center;
   border-radius: 6px;
   padding: 10px;
     }
 
+
+
+
+.style-as-button {
+    background-color: #32CD32;
+    width: 100px;
+    /*height: 100px; */
+    padding: 16px;
+    
+    border: solid 1px yellow;
+    float: none;
+    text-align: center;
+    border-radius: 25px;
+    color: white;
+}
+
+
 #page-container {
     background-color: #FFD743;
 
 }
+
+
+
+
+
 
 #test {
     /*width: 50%; */
@@ -175,11 +197,22 @@ body {
    </div>
 </head>
 
+
+
+    <div class="style-as-button" id="myButton" >
+        <a href="#" >Helpful Tips</a>
+    </div>
+    
+    
+    
 <body>
           <div id="column-container">
             <h2 class="text-center">
                 Useful Links
             </h2>
+            
+               
+               
             <div class="columnsClass">
                 <h4 class="text-center">
                     For coding
@@ -206,24 +239,48 @@ body {
             </div>
         </div>
     
-    
-      <div>
-        <div class="text-bourder text-center">
+     <h4 class="text-center">
+          For Fun
+        </h4>
+        <a href="https://www.namecheap.com/">Namecheap Free logo maker</a>
+        <br>
+        <a href="https://jsfiddle.net/iceaxe/t1n3yw7s/">JSFiddle fun</a>
+
+    <div>
+       
+       <div class="text-bourder text-center">
+        
             <p class="text-block">
                 Complete these challenges as you learn!
             </p>
         </div>
         <ol>
-            <li>Sign up for Github</li>
-            <li>Sign up for jsfiddle</li>
-            <li>Sign up for Free code camp</li>
-            <li>Complete 5 HTML problems</li>
-            <li>Complete 5 CSS problems</li>
-            <li>Complete 5 Javascript problems</li>
-            <li>Start your own webpage in jsfiddle</li>
-            <li>Add a heading using the "h1" tag</li>
-            <li>Add some styes to your heading using CSS</li>
-            <li>Add a </li>
+      <li>Sign up for Github</li>
+      <li>Sign up for jsfiddle</li>
+      <li>Sign up for Free code camp</li>
+      <li>Complete 5 HTML problems</li>
+      <li>Complete 5 CSS problems</li>
+      <li>Complete 5 Javascript problems</li>
+      <li>Start your own webpage in jsfiddle</li>
+      <li>Add a heading using the "h1" tag</li>
+      <li>Add some styes to your heading using CSS</li>
+      <li>Add a "p" tag and write some text about your site</li>
+      <li>Add some simple javascript: make a button that changes colour when clicked</li>
+      <li>find a colour palette and add some colour</li>
+      <li>Create a menu (doesn't have to work yet)</li>
+      <li>Create a free logo using <a href="https://www.namecheap.com/">Namecheap Free logo maker</a></li>
+      <li>Add an image to your page</li>
+      
+      
+      <li>Create a github repository for your code</li>
+      <li>Add an image asset to your github repo</li>
+      <li>Add the image from your github repo to your site</li>
+      <li>Add your site code to your github repository</li>
+      <li>Host your site on github</li>
+      <li>Create a second page for your site in jsfiddle</li>
+      <li>Add your secod page to your github repo</li>
+      <li>Fix your links between your pages</li>
+        
         </ol>
     </div>
 <h1 class="text-light"></h1>
@@ -240,6 +297,45 @@ body {
   <!-- TODO: Missing CoffeeScript 2 -->
 
   <script type="text/javascript">//<![CDATA[
+
+
+/* var element = document.getElementById('myHeading'); // grab a reference to your element
+
+function IveBeenClicked() {
+  element.style.color = "white"
+}
+
+element.addEventListener('click', IveBeenClicked); // associate the function above with the click event */
+
+// this code adds interaction to my button element
+var myButtonEl = document.getElementById('myButton');
+var name = "";
+console.log("test");
+console.log(myButtonEl);
+var colourList = ["red","blue","green","yellow","pink"];
+var colourListIndex = 1;
+
+function ButtonClicked() {
+	colourListIndex = colourListIndex + 1;
+    
+    myButtonEl.style.backgroundColor = colourList[colourListIndex];
+  // if statements ask a question that must resolve to true or false
+  /* if (myButtonEl.style.backgroundColor == "blue") {
+    myButtonEl.style.backgroundColor = "orange";
+    alert("the button colour is " + myButtonEl.style.backgroundColor);
+  } else {
+    myButtonEl.style.backgroundColor = "blue";
+  } */
+  /* name = prompt("what is your name?");
+  console.log(name);
+  myButtonEl.innerHTML = "Hello " + name; */
+  // background-color backgroundColor background_color
+}
+myButtonEl.addEventListener('click', ButtonClicked);
+
+
+
+
 
 
 
