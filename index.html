@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      #myHeading {
+ background-color: #D773A2;
+ color: white;
+ border-radius: 25px;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+ 
+}
+
+#myImage {
+  
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+    }
+
+#page-container {
+    background-color: #FFD743;
+
+}
+
+#test {
+    /*width: 50%; */
+    /* float: right; */
+}
+
+#column-container {
+    height: 200px;
+}
+
+.text-bourder {
+    border: solid 4px #07BB9C;
+    background-color: #FFD743;
+}
+
+.columnsClass {
+    float: left;
+    width: 33%;
+}
+
+.text-center {
+    text-align: center;
+    font-weight: bold;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+  </style>
+
+  <script id="insert"></script>
+
+
+    <script>
+      const customConsole = (w) => {
+        const pushToConsole = (payload, type) => {
+          w.parent.postMessage({
+            console: {
+              payload: payload,
+              type:    type
+            }
+          }, "*")
+        }
+
+        w.onerror = (message, url, line, column) => {
+          // the line needs to correspond with the editor panel
+          // unfortunately this number needs to be altered every time this view is changed
+          line = line - 79
+          if (line < 0){
+            pushToConsole(message, "error")
+          } else {
+            pushToConsole(`[${line}:${column}] ${message}`, "error")
+          }
+        }
+
+        w.console = (function(){
+          return {
+            log: (payload) => {
+              pushToConsole(payload, "log")
+            },
+            info: (payload) => {
+              pushToConsole(payload, "info")
+            },
+            warn: (payload) => {
+              pushToConsole(payload, "warn")
+            },
+            error: (payload) => {
+              pushToConsole(payload, "error")
+            },
+            system: (payload) => {
+              pushToConsole(payload, "system")
+            }
+          }
+        }())
+
+        console.system("Running fiddle")
+      }
+
+      if (window.parent){
+        customConsole(window)
+      }
+    </script>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<img id="myImage" src="https://github.com/wfykitty/Coding-learning-resources/blob/master/logo.png?raw=true" height="100" width="200" alt="logo"> 
+
+    <h1 id="myHeading" class="text-center">
+        Learn Coding!
+    </h1>
+    
+ 
+    <div>
+      <div class="text-bourder text-center">
+            <p id="test" class="text-block">
+                This site is a collection of useful links to help you learn coding.
+            </p>
+        </div>
+   </div>
+</head>
+
+<body>
+          <div id="column-container">
+            <h2 class="text-center">
+                Useful Links
+            </h2>
+            <div class="columnsClass">
+                <h4 class="text-center">
+                    For coding
+                </h4>
+                <a href="https://github.com/">Github</a>
+                <br>
+                <a href="https://jsfiddle.net/">JSFiddle</a>
+            </div>
+            <div class="columnsClass">
+                <h4 class="text-center">
+                    For problem solving
+                </h4>
+                <a href="https://stackoverflow.com/">Stack Overflow</a>
+                <br>
+                <a href="https://www.w3schools.com/">W3schools</a>
+            </div>
+            <div class="columnsClass">
+                <h4 class="text-center">
+                    For Learning
+                </h4>
+                <a href="https://www.freecodecamp.org/">Free Code Camp</a>
+                <br>
+                <a href="https://www.w3schools.com/">W3schools</a>
+            </div>
+        </div>
+    
+    
+      <div>
+        <div class="text-bourder text-center">
+            <p class="text-block">
+                Complete these challenges as you learn!
+            </p>
+        </div>
+        <ol>
+            <li>Sign up for Github</li>
+            <li>Sign up for jsfiddle</li>
+            <li>Sign up for Free code camp</li>
+            <li>Complete 5 HTML problems</li>
+            <li>Complete 5 CSS problems</li>
+            <li>Complete 5 Javascript problems</li>
+            <li>Start your own webpage in jsfiddle</li>
+            <li>Add a heading using the "h1" tag</li>
+            <li>Add some styes to your heading using CSS</li>
+            <li>Add a </li>
+        </ol>
+    </div>
+<h1 class="text-light"></h1>
+
+<div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+</div>
+
+<h6 class="text-light small font-weight-bold"><i class="fas fa-code"></i> <i class="fas fa-heart"></i> </h6>
+
+</body>
+</html> 
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "58smzd4h"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+    <script>
+      let allLines = []
+
+      window.addEventListener("message", (message) => {
+        if (message.data.console){
+          let insert = document.querySelector("#insert")
+          allLines.push(message.data.console.payload)
+          insert.innerHTML = allLines.join(";\r")
+
+          let result = eval.call(null, message.data.console.payload)
+          if (result !== undefined){
+            console.log(result)
+          }
+        }
+      })
+    </script>
+
+</body>
+</html>
